@@ -1,0 +1,23 @@
+function [option, params]=initialParams()
+option.angNum = 65;
+option.angIncrement = 5.6;
+option.imgSize = 256;
+option.Source2Center = 5;
+option.Source2Detector = 10;
+option.detecNum = 512;
+option.detecLen = 4.5;
+option.imgPysicSize = 2;
+option.mode = 'fan';
+%adjust the parameters
+params.lambda1 = 400;
+params.lambda2 = 100;
+params.lambda3 =60;
+params.rho = 100000;
+params.patchSize =6;
+params.stride = 3;
+params.compareSpect=1;
+params.groupNum = 12;
+params.searchWin =3;
+params.iter = 300;
+params.zeta=0.125;
+params.bicgnum=5;

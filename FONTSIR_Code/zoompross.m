@@ -1,0 +1,11 @@
+function y=zoompross(x)
+x(find(x<(-60+500+1024)/3000))=(-60+500+1024)/3000;
+x(find(x>(140+500+1024)/3000))=(140+500+1024)/3000;
+x = (x-min(min(x)))/(max(max(x))-min(min(x)))*255;
+x = x(95:144,175:224);
+x = imresize(x,4);
+y1 = x;
+y2 = x;
+y3 = x;
+y = cat(3,y1,y2,y3);
+y = uint8(y);
