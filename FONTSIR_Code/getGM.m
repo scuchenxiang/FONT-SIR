@@ -20,9 +20,11 @@ for i = 1:(m*n)
     IndexSize=size(winIndex);
     pca_distance=zeros(IndexSize(1),1);
     [coeff_me, score_me, latent_me ]=pca(patchSet(:,:,cur,comBin));
+    patchsetI=patchSet(:,:,winIndex,comBin);
     parfor j=1:IndexSize(1)
-        [coeff, ~, ~ ]=pca(patchSet(:,:,j,comBin));
-        pca_distance(j,1)=-dot(coeff_me(1),coeff(1))/(norm(coeff_me(1))*norm(coeff(1)));
+        %[coeff, ~, ~ ]=pca(patchSet(:,:,j,comBin));
+        [coeff, ~, ~ ]=pca(patchsetI(:,:,j));
+        pca_distance(j,1)=-dot(coeff_me(:,1),coeff(:,1))/(norm(coeff_me(:,1))*norm(coeff(:,1)));
     end
     [~, picIndex] = sort(pca_distance(:));
     res = winIndex(picIndex(1:groupNum)); 
